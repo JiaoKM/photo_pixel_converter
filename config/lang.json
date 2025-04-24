@@ -1,0 +1,20 @@
+{
+    "简体中文": {
+        "title": "像素风图像照片转换",
+        "upload": "上传一张照片",
+        "introduction": "这是一款正在开发中的照片像素风转换应用，目标是经过一系列图像处理，得到可直接用于像素游戏开发或只需少量手动修改即可应用的素材。",
+        "ori_img": "原始图像",
+        "pixel_size_select": "选择处理后的像素大小",
+        "pixel_art": "像素图片预览",
+        "download": "下载像素图片"
+    },
+    "English": {
+        "title": "Photo to Pixel Art Converter",
+        "upload": "Upload a photo",
+        "introduction": "This is a Photo to Pixel Art Converter under development. The goal is to obtain assets after a series of image processing. They can be directly used in pixel game development or can be applied with only a small amount of manual modification.",
+        "ori_img": "Original Image",
+        "pixel_size_select": "Select the pixel size after processing",
+        "pixel_art": "Pixel Art Preview",
+        "download": "Download pixel-art picture"
+    }
+}
