@@ -6,7 +6,8 @@
         "ori_img": "原始图像",
         "pixel_size_select": "选择处理后的像素大小",
         "pixel_art": "像素图片预览",
-        "download": "下载像素图片"
+        "download": "下载像素图片",
+        "palette_select": "调色盘选择"
     },
     "English": {
         "title": "Photo to Pixel Art Converter",
@@ -15,6 +16,7 @@
         "ori_img": "Original Image",
         "pixel_size_select": "Select the pixel size after processing",
         "pixel_art": "Pixel Art Preview",
-        "download": "Download pixel-art picture"
+        "download": "Download pixel-art picture",
+        "palette_select": "Select the palette"
     }
 }
