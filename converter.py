@@ -25,7 +25,7 @@ if uploaded_file is not None:
     st.image(image, caption=tr['ori_img'], use_container_width=True)
     image = np.array(image)
 
-    # 选择一个像素大小
+    # 选择一个像素的大小
     pixel_size = st.slider(tr["pixel_size_select"], 2, 64, 16)
     # 根据像素大小重置图片大小
     image = resize_image_pixel(image, pixel_size)
@@ -40,8 +40,10 @@ if uploaded_file is not None:
         # 最简易像素处理
         image = pixelate(image, pixel_size)
     elif palette_name == 'Auto(K-Means)':
-        # TODO: 使用K-Means自动生成一个调色板，用户可以控制颜色数量
-        image = pixelate(image, pixel_size)
+        # 使用K-Means自动生成一个调色板，用户可以控制颜色数量
+        color_num = st.slider(tr["kmeans_color_num"], 4, 32, 10)
+        palette_kmeans = generate_palette_kmeans(image, color_num)
+        image = pixelate(image, pixel_size, palette_kmeans)
     else:
         image = pixelate(image, pixel_size, palettes[palette_name])
 

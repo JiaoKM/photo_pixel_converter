@@ -1,9 +1,8 @@
 import cv2
 import json
 import numpy as np
-import streamlit as st
-from PIL import Image
 from rembg import remove
+from sklearn.cluster import KMeans
 
 def resize_image_pixel(image, pixel_size):
     # 根据像素大小重置图片大小
@@ -30,7 +29,13 @@ def apply_palette(image, palette):
     image[:, :, :3] = mapped_img
 
     return image
-    
+
+def generate_palette_kmeans(image, color_num):
+    # 使用K-Means聚类根据颜色数量生成调色盘
+    img_flat = image[:, :, :3].reshape(-1, 3)
+    kmeans = KMeans(n_clusters=color_num, random_state=42).fit(img_flat)
+    palette = kmeans.cluster_centers_.astype(int)
+    return palette.tolist()
 
 def pixelate(image, pixel_size, palette=None):
     # 简易的像素处理
@@ -46,5 +51,7 @@ if __name__ == "__main__":
         palettes = json.load(f)
     test_image = cv2.imread("test_image.jpg")
     image = resize_image_pixel(test_image, 16)
-    image = pixelate(image, 16, palettes['Gameboy'])
+    image = pixelate(image, 16)
+    palette_kmeans = generate_palette_kmeans(image, 10)
+    image = pixelate(image, 16, palette_kmeans)
     pass
