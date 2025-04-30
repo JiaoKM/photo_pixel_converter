@@ -8,7 +8,11 @@
         "pixel_art": "像素图片预览",
         "download": "下载像素图片",
         "palette_select": "调色盘选择",
-        "kmeans_color_num": "选择颜色数量"
+        "kmeans_color_num": "选择颜色数量",
+        "manual_palette": "自定义调色盘",
+        "color_select": "选择颜色",
+        "add_to_palette": "添加至调色盘",
+        "color_exists": "该颜色已存在"
     },
     "English": {
         "title": "Photo to Pixel Art Converter",
@@ -19,6 +23,10 @@
         "pixel_art": "Pixel Art Preview",
         "download": "Download pixel-art picture",
         "palette_select": "Select the palette",
-        "kmeans_color_num": "Select the number of colors"
+        "kmeans_color_num": "Select the number of colors",
+        "manual_palette": "Custom palette",
+        "color_select": "Select a color",
+        "add_to_palette": "Add to palette",
+        "color_exists": "The color exists"
     }
 }

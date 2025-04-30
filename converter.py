@@ -33,7 +33,7 @@ if uploaded_file is not None:
     # 选择一种调色盘
     palette_name = st.selectbox(
         tr['palette_select'],
-        ['None', 'Auto(K-Means)'] + list(palettes.keys())
+        ['None', 'Auto(K-Means)', 'Manual'] + list(palettes.keys())
         )
     
     if palette_name == 'None':
@@ -44,6 +44,22 @@ if uploaded_file is not None:
         color_num = st.slider(tr["kmeans_color_num"], 4, 32, 10)
         palette_kmeans = generate_palette_kmeans(image, color_num)
         image = pixelate(image, pixel_size, palette_kmeans)
+    elif palette_name == 'Manual':
+        # TODO 用户手动选择颜色生成一个调色盘，可上传或下载调色盘json文件
+        st.markdown("### " + tr['manual_palette'])
+        # 初始化调色盘中的颜色
+        if 'custom_palette' not in st.session_state:
+            st.session_state.custom_palette = [[0, 0, 0]]
+        # 添加颜色
+        new_color = st.color_picker(tr['color_select'], '#ffffff')
+        if st.button(tr['add_to_palette']):
+            rgb = [int(new_color.lstrip('#')[i: i + 2], 16) for i in [0, 2, 4]]
+            if rgb not in st.session_state.custom_palette:
+                st.session_state.custom_palette.append(rgb)
+            else:
+                st.warning(tr['color_exists'])
+
+        image = pixelate(image, pixel_size, st.session_state.custom_palette)
     else:
         image = pixelate(image, pixel_size, palettes[palette_name])
 
