@@ -5,8 +5,8 @@
 This is a Photo to Pixel Art Converter under development. The goal is to obtain assets after a series of image processing. They can be directly used in pixel game development or can be applied with only a small amount of manual modification.
 
 ```
-conda create -n your_environment_name python=3.10
-conda activate your_environment_name
+conda create -n photo2pixel python=3.10
+conda activate photo2pixel
 git clone https://github.com/JiaoKM/photo_pixel_converter.git
 cd photo_pixel_converter
 pip install -r requirements.txt

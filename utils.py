@@ -45,6 +45,8 @@ def pixelate(image, pixel_size, palette=None):
         pixel_image = apply_palette(pixel_image, palette)
     return pixel_image
 
+def rgb_to_hex(rgb):
+    return "#{:02X}{:02X}{:02X}".format(*rgb)
 
 if __name__ == "__main__":
     with open("config/palette.json", 'r', encoding='utf-8') as f:

@@ -12,7 +12,13 @@
         "manual_palette": "自定义调色盘",
         "color_select": "选择颜色",
         "add_to_palette": "添加至调色盘",
-        "color_exists": "该颜色已存在"
+        "color_exists": "该颜色已存在",
+        "current_palette": "当前调色盘：",
+        "no_colors": "调色盘为空",
+        "download_palette": "下载调色盘",
+        "upload_palette": "上传调色盘JSON文件",
+        "choose_palette_json": "选择JSON文件",
+        "palette_load_fail": "调色盘解析失败"
     },
     "English": {
         "title": "Photo to Pixel Art Converter",
@@ -27,6 +33,12 @@
         "manual_palette": "Custom palette",
         "color_select": "Select a color",
         "add_to_palette": "Add to palette",
-        "color_exists": "The color exists"
+        "color_exists": "The color exists",
+        "current_palette": "Current palette:",
+        "no_colors": "Empty palette",
+        "download_palette": "Download custom palette",
+        "upload_palette": "Upload palette JSON file",
+        "choose_palette_json": "Select JSON file",
+        "palette_load_fail": "Loading failed!"
     }
 }

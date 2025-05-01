@@ -30,6 +30,8 @@ if uploaded_file is not None:
     # 根据像素大小重置图片大小
     image = resize_image_pixel(image, pixel_size)
 
+    # TODO 增加背景去除功能
+
     # 选择一种调色盘
     palette_name = st.selectbox(
         tr['palette_select'],
@@ -45,7 +47,7 @@ if uploaded_file is not None:
         palette_kmeans = generate_palette_kmeans(image, color_num)
         image = pixelate(image, pixel_size, palette_kmeans)
     elif palette_name == 'Manual':
-        # TODO 用户手动选择颜色生成一个调色盘，可上传或下载调色盘json文件
+        # 用户手动选择颜色生成一个调色盘，可上传或下载调色盘json文件
         st.markdown("### " + tr['manual_palette'])
         # 初始化调色盘中的颜色
         if 'custom_palette' not in st.session_state:
@@ -58,6 +60,43 @@ if uploaded_file is not None:
                 st.session_state.custom_palette.append(rgb)
             else:
                 st.warning(tr['color_exists'])
+
+        # 显示当前调色盘
+        if st.session_state.custom_palette:
+            st.markdown("#### " + tr['current_palette'])
+            for i, color in enumerate(st.session_state.custom_palette):
+                col1, col2, col3 = st.columns([1, 4, 1])
+                with col1:
+                    st.markdown(f"#{i+1}")
+                with col2:
+                    st.color_picker(label=str(color[0]) + " " + str(color[1]) + " " + str(color[2]), 
+                                    value=rgb_to_hex(color), 
+                                    key=f"display_{i}", 
+                                    disabled=True)
+                with col3:
+                    if st.button("❌", key=f"delete_{i}"):
+                        st.session_state.custom_palette.pop(i)
+        else:
+            st.info(tr['no_colors'])
+
+        # 上传JSON文件
+        st.markdown("#### " + tr['upload_palette'])
+        palette_json = st.file_uploader(tr['choose_palette_json'], type=['json'])
+        if palette_json:
+            try:
+                st.session_state.custom_palette = json.load(palette_json)
+            except Exception as e:
+                st.error(f"{tr['palette_load_fail']}: {e}")
+
+        # 下载JSON按钮
+        if st.session_state.custom_palette:
+            json_str = json.dumps(st.session_state.custom_palette, indent=4)
+            st.download_button(
+                label=tr.get("download_palette", "下载调色盘 JSON"),
+                data=json_str,
+                file_name="custom_palette.json",
+                mime="application/json"
+            )
 
         image = pixelate(image, pixel_size, st.session_state.custom_palette)
     else:
