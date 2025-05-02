@@ -12,3 +12,10 @@ cd photo_pixel_converter
 pip install -r requirements.txt
 streamlit run converter.py
 ```
+
+## TODOs
+- ~~图片自定义比例的裁剪~~
+- 背景自动去除
+- 噪声点颜色修正
+- 内外轮廓自动描边，多种颜色模式
+- 多方向打光

@@ -1,5 +1,6 @@
 import cv2
 import json
+import math
 import numpy as np
 from rembg import remove
 from sklearn.cluster import KMeans
@@ -10,6 +11,17 @@ def resize_image_pixel(image, pixel_size):
     resized_width = round(width / pixel_size) * pixel_size
     resized_height = round(height / pixel_size) * pixel_size
     return cv2.resize(image, (resized_width, resized_height))
+
+def image_crop(image, left, right, top, bottom):
+    # 根据输入的比例裁剪图片
+    height, width = image.shape[:2]
+    height_start = math.floor(height * top / 100)
+    height_end = math.ceil(height * (1 - bottom / 100))
+    width_start = math.floor(width * left / 100)
+    width_end = math.ceil(width * (1 - right / 100))
+
+    image = image[height_start : height_end, width_start : width_end]
+    return image
 
 def apply_palette(image, palette):
     # 使用调色盘更改颜色
@@ -52,6 +64,7 @@ if __name__ == "__main__":
     with open("config/palette.json", 'r', encoding='utf-8') as f:
         palettes = json.load(f)
     test_image = cv2.imread("test_image.jpg")
+    image = image_crop(test_image, 10, 10, 10, 10)
     image = resize_image_pixel(test_image, 16)
     image = pixelate(image, 16)
     palette_kmeans = generate_palette_kmeans(image, 10)

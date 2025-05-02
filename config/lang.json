@@ -18,7 +18,12 @@
         "download_palette": "下载调色盘",
         "upload_palette": "上传调色盘JSON文件",
         "choose_palette_json": "选择JSON文件",
-        "palette_load_fail": "调色盘解析失败"
+        "palette_load_fail": "调色盘解析失败",
+        "cropping": "照片裁剪",
+        "left_crop_ratio": "左侧裁剪比例",
+        "right_crop_ratio": "右侧裁剪比例",
+        "top_crop_ratio": "上侧裁剪比例",
+        "bottom_crop_ratio": "下侧裁剪比例"
     },
     "English": {
         "title": "Photo to Pixel Art Converter",
@@ -39,6 +44,11 @@
         "download_palette": "Download custom palette",
         "upload_palette": "Upload palette JSON file",
         "choose_palette_json": "Select JSON file",
-        "palette_load_fail": "Loading failed!"
+        "palette_load_fail": "Loading failed!",
+        "cropping": "Photo cropping",
+        "left_crop_ratio": "Left crop ratio",
+        "right_crop_ratio": "Right crop ratio",
+        "top_crop_ratio": "Top crop ratio",
+        "bottom_crop_ratio": "Bottom crop ratio"
     }
 }

@@ -27,6 +27,15 @@ if uploaded_file is not None:
 
     # 选择一个像素的大小
     pixel_size = st.slider(tr["pixel_size_select"], 2, 64, 16)
+    
+    # 增加图片裁剪功能
+    st.markdown("### " + tr['cropping'])
+    left_ratio = st.slider(tr["left_crop_ratio"], 0, 100, 0)
+    right_ratio = st.slider(tr["right_crop_ratio"], 0, 100, 0)
+    top_ratio = st.slider(tr["top_crop_ratio"], 0, 100, 0)
+    bottom_ratio = st.slider(tr["bottom_crop_ratio"], 0, 100, 0)
+    image = image_crop(image, left_ratio, right_ratio, top_ratio, bottom_ratio)
+
     # 根据像素大小重置图片大小
     image = resize_image_pixel(image, pixel_size)
 
@@ -72,7 +81,7 @@ if uploaded_file is not None:
                     st.color_picker(label=str(color[0]) + " " + str(color[1]) + " " + str(color[2]), 
                                     value=rgb_to_hex(color), 
                                     key=f"display_{i}", 
-                                    disabled=True)
+                                    disabled=False)
                 with col3:
                     if st.button("❌", key=f"delete_{i}"):
                         st.session_state.custom_palette.pop(i)
