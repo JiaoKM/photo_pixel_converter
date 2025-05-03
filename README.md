@@ -4,6 +4,8 @@
 
 This is a Photo to Pixel Art Converter under development. The goal is to obtain assets after a series of image processing. They can be directly used in pixel game development or can be applied with only a small amount of manual modification.
 
+URL: https://jiaokm-photo-pixel-converter-converter-k288iy.streamlit.app/
+
 ```
 conda create -n photo2pixel python=3.10
 conda activate photo2pixel
@@ -15,6 +17,7 @@ streamlit run converter.py
 
 ## TODOs
 - ~~图片自定义比例的裁剪~~
+- 提供更多经典调色盘
 - 背景自动去除
 - 噪声点颜色修正
 - 内外轮廓自动描边，多种颜色模式
