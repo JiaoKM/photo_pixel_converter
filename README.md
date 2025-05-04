@@ -25,6 +25,6 @@ streamlit run converter.py
 
 ## 示例 Examples
 
-![ori](example_image\example_ori_image.jpg)
+![ori](example_image/example_ori_image.jpg)
 
-![processed](example_image\pixel_art_8_SEGA.png)
+![processed](example_image/pixel_art_8_SEGA.png)
