@@ -2,7 +2,6 @@ import cv2
 import json
 import math
 import numpy as np
-from rembg import remove
 from sklearn.cluster import KMeans
 
 def resize_image_pixel(image, pixel_size):

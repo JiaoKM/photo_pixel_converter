@@ -22,3 +22,9 @@ streamlit run converter.py
 - 噪声点颜色修正
 - 内外轮廓自动描边，多种颜色模式
 - 多方向打光
+
+## 示例 Examples
+
+![ori](example_image\example_ori_image.jpg)
+
+![processed](example_image\pixel_art_8_SEGA.png)

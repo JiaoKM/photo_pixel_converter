@@ -3,6 +3,7 @@ import json
 import numpy as np
 import streamlit as st
 from PIL import Image
+from rembg import remove
 
 from utils import *
 
@@ -21,8 +22,17 @@ st.text(tr['introduction'])
 uploaded_file = st.file_uploader(tr['upload'], type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
+    img_bytes_io = uploaded_file.getvalue()
     image = Image.open(uploaded_file).convert("RGBA")
     st.image(image, caption=tr['ori_img'], use_container_width=True)
+    
+    # 增加背景去除功能
+    rmbg_flag = st.checkbox(tr['remove_background'], value=False)
+    if rmbg_flag:
+        result = remove(img_bytes_io)
+        image = Image.open(io.BytesIO(result)).convert("RGBA")
+        st.image(image, caption=tr['image_removed_bg'], use_container_width=True)
+
     image = np.array(image)
 
     # 选择一个像素的大小
@@ -38,8 +48,6 @@ if uploaded_file is not None:
 
     # 根据像素大小重置图片大小
     image = resize_image_pixel(image, pixel_size)
-
-    # TODO 增加背景去除功能
 
     # 选择一种调色盘
     palette_name = st.selectbox(

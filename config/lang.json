@@ -23,7 +23,9 @@
         "left_crop_ratio": "左侧裁剪比例",
         "right_crop_ratio": "右侧裁剪比例",
         "top_crop_ratio": "上侧裁剪比例",
-        "bottom_crop_ratio": "下侧裁剪比例"
+        "bottom_crop_ratio": "下侧裁剪比例",
+        "remove_background": "去除背景",
+        "image_removed_bg": "去除背景后图像"
     },
     "English": {
         "title": "Photo to Pixel Art Converter",
@@ -49,6 +51,8 @@
         "left_crop_ratio": "Left crop ratio",
         "right_crop_ratio": "Right crop ratio",
         "top_crop_ratio": "Top crop ratio",
-        "bottom_crop_ratio": "Bottom crop ratio"
+        "bottom_crop_ratio": "Bottom crop ratio",
+        "remove_background": "Remove background",
+        "image_removed_bg": "Image with background removed"
     }
 }
