@@ -25,7 +25,8 @@
         "top_crop_ratio": "上侧裁剪比例",
         "bottom_crop_ratio": "下侧裁剪比例",
         "remove_background": "去除背景",
-        "image_removed_bg": "去除背景后图像"
+        "image_removed_bg": "去除背景后图像",
+        "resolution": "分辨率："
     },
     "English": {
         "title": "Photo to Pixel Art Converter",
@@ -53,6 +54,7 @@
         "top_crop_ratio": "Top crop ratio",
         "bottom_crop_ratio": "Bottom crop ratio",
         "remove_background": "Remove background",
-        "image_removed_bg": "Image with background removed"
+        "image_removed_bg": "Image with background removed",
+        "resolution": "Resolution: "
     }
 }

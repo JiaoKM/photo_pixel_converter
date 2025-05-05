@@ -45,9 +45,11 @@ if uploaded_file is not None:
     top_ratio = st.slider(tr["top_crop_ratio"], 0, 100, 0)
     bottom_ratio = st.slider(tr["bottom_crop_ratio"], 0, 100, 0)
     image = image_crop(image, left_ratio, right_ratio, top_ratio, bottom_ratio)
+    
 
     # 根据像素大小重置图片大小
     image = resize_image_pixel(image, pixel_size)
+    st.text(tr['resolution'] + str(image.shape[0]) + ' x ' + str(image.shape[1]))
 
     # 选择一种调色盘
     palette_name = st.selectbox(
@@ -119,6 +121,7 @@ if uploaded_file is not None:
     else:
         image = pixelate(image, pixel_size, palettes[palette_name])
 
+    st.text(tr['resolution'] + str(image.shape[0]) + ' x ' + str(image.shape[1]))
     image = Image.fromarray(image, mode="RGBA")
     st.image(image, caption=tr['pixel_art'], use_container_width=True)
 
